@@ -1,0 +1,81 @@
+//
+//  PrefixHeader.pch
+//  ddhyShipper
+//
+//  Created by 岳俊杰 on 15/11/23.
+//  Copyright © 2015年 tdhy. All rights reserved.
+//
+#ifdef __OBJC__
+#import <Foundation/Foundation.h>
+#endif
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+//#pragma clang diagnostic ignored "-Wmissing-selector-name"
+
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import "UIViewAdditions.h"
+#import "UIDefines.h"
+#import "APIMacro.h"
+#import "LCProgressHUD.h"
+#import "DDHTTPManger.h"
+//#import "DataModels.h"
+#import "AFNetworking.h"
+#import "MJRefresh.h"
+#import "MobClick.h"
+#import "DataModels.h"
+#import "JFMacro.h"
+
+//#import <BaiduMapAPI_Base/BMKBaseComponent.h>//引入base相关所有的头文件
+//
+//#import <BaiduMapAPI_Map/BMKMapComponent.h>//引入地图功能所有的头文件
+//
+//#import <BaiduMapAPI_Search/BMKSearchComponent.h>//引入检索功能所有的头文件
+//
+//#import <BaiduMapAPI_Cloud/BMKCloudSearchComponent.h>//引入云检索功能所有的头文件
+//
+//#import <BaiduMapAPI_Location/BMKLocationComponent.h>//引入定位功能所有的头文件
+//
+//#import <BaiduMapAPI_Utils/BMKUtilsComponent.h>//引入计算工具所有的头文件
+//
+//#import <BaiduMapAPI_Radar/BMKRadarComponent.h>//引入周边雷达功能所有的头文件
+//
+//#import <BaiduMapAPI_Map/BMKMapView.h>//只引入所需的单个头文件
+
+#define DD_WIDTH (([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait || [UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown) ? [[UIScreen mainScreen] bounds].size.width : [[UIScreen mainScreen] bounds].size.height)
+
+#define DD_HEIGHT (([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait || [UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown) ? [[UIScreen mainScreen] bounds].size.height : [[UIScreen mainScreen] bounds].size.width)
+#define IP @"http://hma.hoau.net:8080"
+#define DD_BIG_FONT   [UIFont systemFontOfSize:14.0]
+#define DD_SMALL_FONT [UIFont systemFontOfSize:12.0]
+#define PHONE(number)             UIWebView * callWebview = [[UIWebView alloc] init];\
+[callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",number]]]];\
+[self.view addSubview:callWebview];
+
+#define NOTI_CENTENT [NSNotificationCenter defaultCenter]
+          #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+#define BACKGROUND_COLOR self.view.backgroundColor = UIColorFromRGB(0xF9FAFA)
+#define DDCOLOR UIColorFromRGB(0x2BB7AA);
+#define HEIGHT_SIZE_DDHY(_width_, _string_) [_string_ boundingRectWithSize:CGSizeMake(_width_, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingTruncatesLastVisibleLine attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:13.0]} context:nil].size;
+
+//唯一标示符
+#define KEY_IN_KEYCHAIN @"com.HOAU.ddhyS"
+#define KEY_IDENTIFIER @"com.HOAU.ddhyShipper"
+
+/**
+// 名钊
+ #define DDHOST @"http://10.39.117.82:8081"
+ 
+ **/
+
+//测试地址
+//#define DDHOST @"http://10.39.251.24:8180"
+//正式地址
+#define DDHOST @"http://dudu.hoau.net"
+
+
+#endif /* PrefixHeader_pch */
